@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Drug Prediction using Machine Learning Model Deployed on Cloud</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="POST">
+      <input type="text" name="age" placeholder="AGE : 16 - 100" required="required" />
+      <BR>
+      <label for="GENDER">Gender</label>
+<select id="GENDER" name="GENDER">
+  <option value="F">Female</option>
+  <option value="M">Male</option>
+</select>
+      <BR>
+     
+       <label for="BP">Blood Pressure</label>
+<select id="BP" name="BP">
+  <option value="HIGH">High</option>
+  <option value="LOW">Low</option>
+  <option value="NORMAL">Normal</option>
+</select>
+      <BR>
+   <label for="Cholesterol">Cholesterol</label>
+<select id="Cholesterol" name="Cholesterol">
+  <option value="NORMAL">Normal</option>
+  <option value="HIGH">High</option>
+</select>
+<BR>
+      <input type="text" name="natok" placeholder="NA to K : 0 - 50" required="required" />
+
+       <BR>
+       <BR><BR><BR>
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+  
+   
+ </div>
+ {{prediction_text}}
+
+</body>
+</html>
